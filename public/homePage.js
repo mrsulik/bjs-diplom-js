@@ -66,7 +66,7 @@ ApiConnector.getFavorites(res => {
     if(res.success) {
         favoritesWidget.clearTable()
         favoritesWidget.fillTable(res.data)
-        favoritesWidget.updateUsersList(res.data)
+        moneyManager.updateUsersList(res.data)
     }
 })
 
@@ -75,7 +75,7 @@ favoritesWidget.addUserCallback = function(data) {
         if(res.success) {
             favoritesWidget.clearTable()
             favoritesWidget.fillTable(res.data)
-            favoritesWidget.updateUsersList(res.data)
+            moneyManager.updateUsersList(res.data)
             return
         }
         favoritesWidget.setMessage(false, res.error)
@@ -87,6 +87,7 @@ favoritesWidget.removeUserCallback = function(data) {
         if(res.success) {
             favoritesWidget.clearTable()
             favoritesWidget.fillTable(res.data)
+            moneyManager.updateUsersList(res.data)
             return
         }
         favoritesWidget.setMessage(false, res.error)
